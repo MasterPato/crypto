@@ -1,0 +1,42 @@
+#!/bin/bash
+
+GTKDIALOG=gtkdialog
+export MAIN_DIALOG='
+
+<window title="Caesar Cipher" resizable="true" width-request="250" height-request="300">
+
+<vbox>
+	<hbox space-fill="true">
+	      <text> 
+		<label>key</label>
+	      </text>
+	</hbox>
+	<hbox space-fill="true">
+	      <entry>	 
+		<variable>k</variable>
+	      </entry>
+	</hbox>
+	<hbox space-fill="true">
+	      <text><label>messasge</label></text>
+	</hbox>
+	<hbox space-fill="true">
+	      <entry>
+		<variable>p</variable>
+	      </entry>
+	 </hbox>
+
+	 <hbox space-fill="true">
+		<button>
+		 <label>Cipher</label>
+		 <action>./cipher $k $p</action>
+		</button>
+	 </hbox>
+</vbox>
+
+</window>
+'
+
+case $1 in
+     	-d | --dump) echo "$MAIN_DIALOG" ;;
+	*) $GTKDIALOG --program=MAIN_DIALOG --center ;;
+esac
