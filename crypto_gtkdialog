@@ -3,8 +3,9 @@
 GTKDIALOG=gtkdialog
 export MAIN_DIALOG='
 
-<window title="Caesar Cipher" resizable="true" width-request="250" height-request="300">
-
+<window title="Super Cipher" resizable="true" width-request="250" height-request="300">
+<vbox>
+<notebook labels="Caesar | Vigenere">
 <vbox>
 	<hbox space-fill="true">
 	      <text> 
@@ -12,9 +13,9 @@ export MAIN_DIALOG='
 	      </text>
 	</hbox>
 	<hbox space-fill="true">
-	      <entry>	 
-		<variable>k</variable>
-	      </entry>
+	      <spinbutton range-min="0" range-max="26" range-value="1">
+                <variable>k</variable>
+              </spinbutton>
 	</hbox>
 	<hbox space-fill="true">
 	      <text><label>messasge</label></text>
@@ -32,7 +33,29 @@ export MAIN_DIALOG='
 		</button>
 	 </hbox>
 </vbox>
-
+<vbox>
+      <hbox space-fill="true">
+        <text><label>key</label></text>
+      </hbox>
+      <hbox space-fill="true">
+        <entry>
+          <variable>vk</variable>
+        </entry>
+      </hbox>
+      <hbox space-fill="true">
+        <text><label>message</label></text>
+      </hbox>
+     <hbox space-fill="true">
+        <entry>
+          <variable>vp</variable>
+        </entry>
+     </hbox>
+</vbox>
+</notebook>
+   <hbox>
+     <button ok></button>
+   </hbox>
+</vbox>
 </window>
 '
 
